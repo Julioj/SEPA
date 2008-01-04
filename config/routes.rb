@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/visits/soon' => 'visits#soon'
   resources :documents
   resources :companies
   resources :visits

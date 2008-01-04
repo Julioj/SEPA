@@ -7,10 +7,15 @@ class VisitsController < ApplicationController
     @visits = Visit.all
   end
 
+  # GET /visits/soon
+  # GET /visits/soon.json
+  def soon
+    @visits = Visit.where("visitDate <= ?", Date.today + 90.day)
+  end
+
   # GET /visits/1
   # GET /visits/1.json
   def show
-    @documents=Document.where(:visitId => params[:id])
   end
 
   # GET /visits/new
@@ -29,7 +34,7 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+        format.html { redirect_to @visit, notice: 'Visita creada con exito' }
         format.json { render :show, status: :created, location: @visit }
       else
         format.html { render :new }
@@ -43,7 +48,7 @@ class VisitsController < ApplicationController
   def update
     respond_to do |format|
       if @visit.update(visit_params)
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
+        format.html { redirect_to @visit, notice: 'Visita actualizada con exito' }
         format.json { render :show, status: :ok, location: @visit }
       else
         format.html { render :edit }
@@ -57,7 +62,7 @@ class VisitsController < ApplicationController
   def destroy
     @visit.destroy
     respond_to do |format|
-      format.html { redirect_to visits_url, notice: 'Visit was successfully destroyed.' }
+      format.html { redirect_to visits_url, notice: 'Visita eliminada con exito' }
       format.json { head :no_content }
     end
   end

@@ -43,8 +43,10 @@
   <% end %>
 
   <div class="pure-control-group">
-    <%= f.text_field :name, :placeholder => 'Nombre'%>
-    <%= f.text_field :days, :placeholder => 'Equivalente a cuantos dias?'%>
+    <%= label_tag(:name, "Nombre:") %>
+    <%= f.text_field :name, :placeholder => 'Nombre' , :class => 'pure-input-1-4'%>
+    <%= label_tag(:days, "Equivalente a cuantos dias?:") %>
+    <%= f.text_field :days, :placeholder => 'Equivalente a cuantos dias?' , :class => 'pure-input-1-4'%>
   </div>
 
   <div class="actions">

@@ -44,16 +44,16 @@
 
   <div class="pure-control-group">
     <%= label_tag(:companyId, "Cliente:") %>
-    <%= select("visit", "companyId", Company.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Seleccione un Cliente' })%>
+    <%= select("visit", "companyId", Company.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Seleccione un Cliente' }, :class => 'pure-input-1-4')%>
     <%= label_tag(:visitTypeId, "Tipo de Visita:") %>
-    <%= select("visit", "visitTypeId", VisitType.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Seleccione un Tipo de Visita' })%>
+    <%= select("visit", "visitTypeId", VisitType.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Seleccione un Tipo de Visita' }, :class => 'pure-input-1-4')%>
   </div>
 
   <div class="pure-control-group">
     <%= label_tag(:frecuencyTypeId, "Frecuencia de la Visita:") %>
-    <%= select("visit", "frecuencyTypeId", Frecuency.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Frecuencia de la Visita' })%>
+    <%= select("visit", "frecuencyTypeId", Frecuency.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Frecuencia de la Visita' }, :class => 'pure-input-1-4')%>
     <%= label_tag(:employeeId, "Responsable:") %>
-    <%= select("visit", "employeeId", Employee.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Responsable' })%>
+    <%= select("visit", "employeeId", Employee.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Responsable' }, :class => 'pure-input-1-4')%>
   </div>
 
   <div class="pure-control-group">

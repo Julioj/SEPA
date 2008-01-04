@@ -43,12 +43,15 @@
   <% end %>
 
   <div class="pure-control-group">
-    <%= f.text_field :name, :placeholder => 'Nombre'%>
-    <%= f.text_field :email, :placeholder => 'Correo'%>
+  <%= label_tag(:name, "Nombre:") %>
+    <%= f.text_field :name, :placeholder => 'Nombre', :class => 'pure-input-1-4'%>
+    <%= label_tag(:email, "Correo:") %>
+    <%= f.text_field :email, :placeholder => 'Correo', :class => 'pure-input-1-4'%>
   </div>
 
   <div class="pure-control-group">
-    <%= f.text_field :tlf, :placeholder => 'Telefono'%>
+  <%= label_tag(:tlf, "Telefono:") %>
+    <%= f.text_field :tlf, :placeholder => 'Telefono', :class => 'pure-input-1-4'%>
   </div>
 
   <div class="actions">

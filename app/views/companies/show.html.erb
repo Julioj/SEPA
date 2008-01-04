@@ -3,13 +3,14 @@
 <p>
   <h1> <%=@company.name%></h1>
 </p>
+
 <p><strong>Responsable:</strong>
-  <%= Employee.find(@company.employeeId).name %>
+  <%= @company.employee.name %>
 </p>
 
 <p>
   <strong>Tipo de Industria:</strong>
-  <%= IndustryType.find(@company.industryTypeId).name %>
+  <%= @company.industryType.name %>
   <strong>Email:</strong>
   <%= @company.email %>
 </p>
@@ -45,11 +46,11 @@
   </thead>
 
   <tbody>
-    <% @visits.each do |visit| %>
+    <% @company.visit.each do |visit| %>
       <tr>
-        <td><%= VisitType.find(visit.visitTypeId).name %></td>
-        <td><%= Frecuency.find(visit.frecuencyTypeId).name %></td>
-        <td><%= Employee.find(visit.employeeId).name %></td>
+        <td><%= visit.visitType.name %></td>
+        <td><%= visit.frecuency.name %></td>
+        <td><%= visit.employee.name %></td>
         <td><%= visit.visitDate %></td>
         <td><%= visit.aproved %></td>
         <td><%= visit.nextVisit %></td>
@@ -64,4 +65,5 @@
 <br>
 
 <%= link_to 'Editar', edit_company_path(@company) %> |
-<%= link_to 'Regresar', companies_path %>
+<%= link_to 'Regresar', companies_path %> |
+<%= link_to 'Agregar Comentario', new_comment_path(@company) %>

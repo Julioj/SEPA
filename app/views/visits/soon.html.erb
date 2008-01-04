@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Visitas en los proximos 90 dias</h1>
+
+<table class="pure-table pure-table-horizontal">
+  <thead>
+    <tr>
+      <th>Compañia</th>
+      <th>Tipo de visita</th>
+      <th>Frecuencia de la visita</th>
+      <th>Responsable</th>
+      <th>Fecha de la visita</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visits.each do |visit| %>
+      <tr>
+        <td><%= Company.find(visit.companyId).name %></td>
+        <td><%= VisitType.find(visit.visitTypeId).name %></td>
+        <td><%= Frecuency.find(visit.frecuencyTypeId).name %></td>
+        <td><%= Employee.find(visit.employeeId).name %></td>
+        <td><%= visit.visitDate %></td>
+        <td><%= link_to 'Ver detalle', company_path(visit.companyId) %></td>
+        <td><%= link_to 'Editar', edit_visit_path(visit) %></td>
+        <td><%= link_to 'Eliminar', visit, method: :delete%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Visita', new_visit_path %>

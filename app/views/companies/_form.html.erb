@@ -43,21 +43,30 @@
   <% end %>
 
   <div class="pure-control-group">
-    <%= select("company", "industryTypeId", IndustryType.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Tipo de Industria' })%>
-    <%= select("company", "employeeId", Employee.all.collect {|g| [ g.name, g.id ] }, {  :prompt => 'Empleado Responsable' })%>
+    <%= label_tag(:industryTypeId, "Tipo de Industria:") %>
+    <%= select("company", "industryTypeId", IndustryType.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Tipo de Industria' } , :class => 'pure-input-1-4')%>
+    <%= label_tag(:employeeId, "Responsable:") %>
+    <%= select("company", "employeeId", Employee.all.collect {|g| [ g.name, g.id ] }, {  :prompt => 'Empleado Responsable' } , :class => 'pure-input-1-4')%>
   </div>
 
   <div class="pure-control-group">
-    <%= f.text_field :name, :placeholder => 'Nombre'%>
-    <%= f.text_field :email, :placeholder => 'E-mail' %>
+    <%= label_tag(:name, "Nombre:") %>
+    <%= f.text_field :name, :placeholder => 'Nombre' , :class => 'pure-input-1-4'%>
+    <%= label_tag(:email, "Correo:") %>
+    <%= f.text_field :email, :placeholder => 'E-mail', :class => 'pure-input-1-4' %>
   </div>
 
   <div class="pure-control-group">
-    <%= f.text_field :address, :placeholder => 'Direccion' %>
-    <%= f.text_field :cuit, :placeholder => 'Identificacion (Cuit/Cuil)' %>
+    <%= label_tag(:address, "Direccion:") %>
+    <%= f.text_field :address, :placeholder => 'Direccion', :class => 'pure-input-1-2' %>
+  </div>
+  <div class="pure-control-group">
+    <%= label_tag(:cuit, "Identificacion (Cuit/Cuil):") %>
+    <%= f.text_field :cuit, :placeholder => 'Identificacion (Cuit/Cuil)'  , :class => 'pure-input-1-4'%>
   </div>
 
   <div class="pure-control-group">
+    <%= label_tag(:comment, "Comentario:") %>
     <%= f.text_field :comment, :placeholder => 'Comentario', :class => 'pure-input-1-4' %>
     <%= label_tag(:suscription, "Servicio HYS?") %>
     <%= f.check_box :suscription %>
@@ -67,14 +76,17 @@
 
   <div class="pure-form pure-form-aligned">
     <%= f.nested_fields_for :visit, legend: "Complete los datos de la Visita" do |ff| %>
-      <div class="pure-u-1 pure-u-md-1-3">
-        <%= ff.select :visitTypeId, options_for_select(VisitType.all.collect {|e| [ e.name, e.id ]}, ff.object.visitTypeId), :include_blank => "Tipo de Visita"%>
-        <%= ff.select :frecuencyTypeId, options_for_select(Frecuency.all.collect {|e| [ e.name, e.id ]}, ff.object.frecuencyTypeId), :include_blank => "Frecuencia de Visita"%>
-        <%= ff.select :employeeId, options_for_select(Employee.all.collect {|e| [ e.name, e.id ]}, ff.object.employeeId), :include_blank => "Realizador de la Visita"%>
+      <div class="pure-control-group">
+        <%= label_tag(:visitTypeId, "Tipo de Visita:") %>
+        <%= ff.select :visitTypeId, options_for_select(VisitType.all.collect {|e| [ e.name, e.id ]}, ff.object.visitTypeId), :include_blank => "Tipo de Visita", :class => 'pure-input-1-3'%>
+        <%= label_tag(:frecuencyTypeId, "Tipo de Frecuencia:") %>
+        <%= ff.select :frecuencyTypeId, options_for_select(Frecuency.all.collect {|e| [ e.name, e.id ]}, ff.object.frecuencyTypeId), :include_blank => "Frecuencia de Visita" , :class => 'pure-input-1-3'%>
+        <%= label_tag(:employeeId, "Responsable:") %>
+        <%= ff.select :employeeId, options_for_select(Employee.all.collect {|e| [ e.name, e.id ]}, ff.object.employeeId), :include_blank => "Realizador de la Visita" , :class => 'pure-input-1-3'%>
       </div>
-      <div class="pure-u-1 pure-u-md-1-3">
+      <div class="pure-control-group">
         <%= label_tag(:visitDate, "Fecha de la Visita:") %>
-        <%= ff.date_select :visitDate %>
+        <%= ff.date_select :visitDate , :class => 'pure-input-1-3' %>
       </div>
       <%= ff.remove_nested_fields_link 'Eliminar esta Visita', class: 'button-error pure-button',role: 'button'%>
   <% end %>

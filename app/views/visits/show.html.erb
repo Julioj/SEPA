@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <h1> <%= VisitType.find(@visit.visitTypeId).name %> </h1>
+  <h1> <%= @visit.visitType.name %> </h1>
 </p>
 <p>
   <strong>Fecha de la visita:</strong>
   <%= @visit.visitDate %>
   <strong>Cliente:</strong>
-  <%= Company.find(@visit.companyId).name %>
+  <%= @visit.company.name %>
 </p>
 
 <p>
   <strong>Responsable:</strong>
-  <%= Employee.find(@visit.employeeId).name %>
+  <%= @visit.employee.name %>
   <strong>Frecuencia:</strong>
-  <%= Frecuency.find(@visit.frecuencyTypeId).name %>
+  <%= @visit.frecuency.name %>
 </p>
 
 <p>
@@ -33,7 +33,7 @@
   </thead>
 
   <tbody>
-    <% @documents.each do |document| %>
+    <% @visit.document.each do |document| %>
       <tr>
         <td><%= document.name %></td>
         <td><%= link_to 'Descargar', document.images.url(:original, false) %></td>
