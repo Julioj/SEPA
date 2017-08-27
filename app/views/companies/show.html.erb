@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1> <%=@company.name%></h1>
+</p>
+<p><strong>Responsable:</strong>
+  <%= Employee.find(@company.employeeId).name %>
+</p>
+
+<p>
+  <strong>Tipo de Industria:</strong>
+  <%= IndustryType.find(@company.industryTypeId).name %>
+  <strong>Email:</strong>
+  <%= @company.email %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @company.address %>
+  <strong>Cuit:</strong>
+  <%= @company.cuit %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @company.comment %>
+  <strong>Suscription:</strong>
+  <%= @company.suscription %>
+</p>
+
+
+<h3>Visitas</h3>
+
+<table class="pure-table pure-table-horizontal">
+  <thead>
+    <tr>
+      <th>Tipo de visita</th>
+      <th>frecuencia de la visita</th>
+      <th>Responsable</th>
+      <th>Fecha de la visita</th>
+      <th>Aprovado?</th>
+      <th>Fecha de la proxima visita</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visits.each do |visit| %>
+      <tr>
+        <td><%= VisitType.find(visit.visitTypeId).name %></td>
+        <td><%= Frecuency.find(visit.frecuencyTypeId).name %></td>
+        <td><%= Employee.find(visit.employeeId).name %></td>
+        <td><%= visit.visitDate %></td>
+        <td><%= visit.aproved %></td>
+        <td><%= visit.nextVisit %></td>
+        <td><%= link_to 'Ver Detalles', visit %></td>
+        <td><%= link_to 'Editar', edit_visit_path(visit) %></td>
+        <td><%= link_to 'Eliminar', visit, method: :delete, data: { confirm: 'Esta Ud Seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Editar', edit_company_path(@company) %> |
+<%= link_to 'Regresar', companies_path %>
