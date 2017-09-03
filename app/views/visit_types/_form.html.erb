@@ -43,7 +43,9 @@
   <% end %>
 
   <div class="pure-control-group">
+    <%= label_tag(:name, "Nombre:") %>
     <%= f.text_field :name, :placeholder => 'Nombre'%>
+    <%= label_tag(:description, "Descripcion:") %>
     <%= f.text_field :description, :placeholder => 'Descripcion'%>
   </div>
 

@@ -28,7 +28,7 @@ class IndustryTypesController < ApplicationController
 
     respond_to do |format|
       if @industry_type.save
-        format.html { redirect_to @industry_type, notice: 'Industry type was successfully created.' }
+        format.html { redirect_to @industry_type, notice: 'Industria creada con exito' }
         format.json { render :show, status: :created, location: @industry_type }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class IndustryTypesController < ApplicationController
   def update
     respond_to do |format|
       if @industry_type.update(industry_type_params)
-        format.html { redirect_to @industry_type, notice: 'Industry type was successfully updated.' }
+        format.html { redirect_to @industry_type, notice: 'Industria actualizada con exito' }
         format.json { render :show, status: :ok, location: @industry_type }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class IndustryTypesController < ApplicationController
   def destroy
     @industry_type.destroy
     respond_to do |format|
-      format.html { redirect_to industry_types_url, notice: 'Industry type was successfully destroyed.' }
+      format.html { redirect_to industry_types_url, notice: 'Industria eliminada con exito' }
       format.json { head :no_content }
     end
   end

@@ -1,4 +1,35 @@
-<%= form_for(industry_type) do |f| %>
+<div>
+    <style scoped>
+
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(255, 255, 0); /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(102, 255, 255); /* this is a light blue */
+        }
+
+    </style>
+</div>
+<%= form_for @industry_type, :html => {:class => 'pure-form pure-form-aligned'} do |f| %>
+  <%= field_set_tag 'Por favor complete los siguientes campos'  %>
   <% if industry_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(industry_type.errors.count, "error") %> prohibited this industry_type from being saved:</h2>
@@ -11,12 +42,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="pure-control-group">
+    <%= label_tag(:name, "Nombre:") %>
+    <%= f.text_field :name, :placeholder => 'Nombre', :class => 'pure-input-1-4'%>
   </div>
 
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Guardar Industria', :class=>'button-success pure-button' %>
   </div>
 <% end %>

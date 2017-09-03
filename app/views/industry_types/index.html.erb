@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Industry Types</h1>
+<h1>Industrias</h1>
 
-<table>
+
+<table class="pure-table pure-table-horizontal">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nombre</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,9 +15,9 @@
     <% @industry_types.each do |industry_type| %>
       <tr>
         <td><%= industry_type.name %></td>
-        <td><%= link_to 'Show', industry_type %></td>
-        <td><%= link_to 'Edit', edit_industry_type_path(industry_type) %></td>
-        <td><%= link_to 'Destroy', industry_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver Detalles', industry_type %></td>
+        <td><%= link_to 'Editar', edit_industry_type_path(industry_type) %></td>
+        <td><%= link_to 'Eliminar', industry_type, method: :delete, data: { confirm: 'Esta Ud Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Industry Type', new_industry_type_path %>
+<%= link_to 'Nueva Industria', new_industry_type_path %>

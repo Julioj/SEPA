@@ -28,7 +28,7 @@ class FrecuenciesController < ApplicationController
 
     respond_to do |format|
       if @frecuency.save
-        format.html { redirect_to @frecuency, notice: 'Frecuency was successfully created.' }
+        format.html { redirect_to @frecuency, notice: 'Frecuencia creada con exito' }
         format.json { render :show, status: :created, location: @frecuency }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class FrecuenciesController < ApplicationController
   def update
     respond_to do |format|
       if @frecuency.update(frecuency_params)
-        format.html { redirect_to @frecuency, notice: 'Frecuency was successfully updated.' }
+        format.html { redirect_to @frecuency, notice: 'Frecuencia actualizada con exito' }
         format.json { render :show, status: :ok, location: @frecuency }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class FrecuenciesController < ApplicationController
   def destroy
     @frecuency.destroy
     respond_to do |format|
-      format.html { redirect_to frecuencies_url, notice: 'Frecuency was successfully destroyed.' }
+      format.html { redirect_to frecuencies_url, notice: 'Frecuencia eliminada con exito' }
       format.json { head :no_content }
     end
   end

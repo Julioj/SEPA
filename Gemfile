@@ -46,3 +46,5 @@ gem 'nested_form_fields'
 gem 'pure-css-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'paperclip', '~> 5.0.0'
+gem 'mysql2'
+#gem 'whenever', :require => false

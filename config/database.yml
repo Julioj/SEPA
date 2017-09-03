@@ -5,13 +5,18 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
   pool: 5
   timeout: 5000
+  database: sepa
+  username: <%= Rails.application.secrets[:db_user] %>
+  password: <%= Rails.application.secrets[:db_password] %>
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: sepa
+  username: <%= Rails.application.secrets[:db_user] %>
+  password: <%= Rails.application.secrets[:db_password] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
