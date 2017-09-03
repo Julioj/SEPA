@@ -64,6 +64,30 @@
 
 <br>
 
+<h3>Comentarios</h3>
+
+<table class="pure-table pure-table-horizontal">
+  <thead>
+    <tr>
+      <th>Comentario</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company.comment.each do |comment| %>
+      <tr>
+        <td><%= comment.comment %></td>
+        <td><%= link_to 'Ver Detalles', comment %></td>
+        <td><%= link_to 'Editar', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Eliminar', comment, method: :delete, data: { confirm: 'Esta Ud Seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
 <%= link_to 'Editar', edit_company_path(@company) %> |
 <%= link_to 'Regresar', companies_path %> |
 <%= link_to 'Agregar Comentario', new_comment_path(@company) %>

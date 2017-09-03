@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Comments</h1>
+<h1>Comentarios</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Companyid</th>
+      <th>Cliente</th>
       <th>Comment</th>
       <th colspan="3"></th>
     </tr>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= comment.companyId %></td>
         <td><%= comment.comment %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver Detalle', comment %></td>
+        <td><%= link_to 'Editar', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Eliminar', comment, method: :delete, data: { confirm: 'Esta ud Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'Nuevo Comentario', new_comment_path %>

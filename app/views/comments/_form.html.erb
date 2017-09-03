@@ -1,4 +1,35 @@
-<%= form_for(comment) do |f| %>
+<div>
+    <style scoped>
+
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(255, 255, 0); /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(102, 204, 255); /* this is a light blue */
+        }
+
+    </style>
+</div>
+<%= form_for @comment, :html => {:class => 'pure-form pure-form-aligned'} do |f| %>
+<%= field_set_tag 'Por favor complete los siguientes campos'  %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -11,17 +42,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :companyId %>
-    <%= f.number_field :companyId %>
+    <%= f.hidden_field :companyId %>
   </div>
 
   <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_field :comment %>
+    <%= label_tag(:comment, "Comentario:") %>
+    <%= f.text_area :comment %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="action">
+    <%= f.submit 'Guardar Comentario', :class=>'button-success pure-button' %>
   </div>
 <% end %>

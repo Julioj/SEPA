@@ -1,14 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Companyid:</strong>
-  <%= @comment.companyId %>
-</p>
-
-<p>
   <strong>Comment:</strong>
   <%= @comment.comment %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Editar', edit_comment_path(@comment) %> |
+<%= link_to 'Regresar', comments_path %>
