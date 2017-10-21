@@ -49,6 +49,20 @@
     <%= f.text_field :description, :placeholder => 'Descripcion'%>
   </div>
 
+  <div class="pure-control-group">
+    <%= label_tag(:aked_by, "Solicitado por:") %>
+    <%= f.text_field :aked_by, :placeholder => 'Solicitado por'%>
+    <%= label_tag(:ambit, "Ambito:") %>
+    <%= f.text_field :description, :placeholder => 'Ambito'%>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:authority, "Autoridad que solicita:") %>
+    <%= f.text_field :authority, :placeholder => 'Autoridad que solicita'%>
+    <%= label_tag(:legislation, "Legislacion:") %>
+    <%= f.text_field :legislation, :placeholder => 'Legislacion'%>
+  </div>
+
   <div class="actions">
     <%= f.submit 'Guardar Tipo de Visita', :class=>'button-success pure-button' %>
   </div>

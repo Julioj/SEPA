@@ -10,7 +10,7 @@ class VisitsController < ApplicationController
   # GET /visits/soon
   # GET /visits/soon.json
   def soon
-    @visits = Visit.where("visitDate <= ?", Date.today + 90.day)
+    @visits = Visit.where("visitDate <= ? and aprovalDate is null", Date.today + 90.day)
   end
 
   # GET /visits/1

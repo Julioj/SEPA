@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SEPAv1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="css/layouts/side-menu.css">
+        <!--<![endif]-->
+
+    <title>SEPA</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+        	<div class = "logo">
+            	<img src="/logosepa.jpg" style="width:188px;height:70px;padding:10px;background-color:white">
+        	</div>
+    <div id="menu">
+        <div class="pure-menu custom-restricted-width">
+            <a class="pure-menu-heading" href="#"><b>Menu Principal</b></a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="/employees" class="pure-menu-link">Profesionales</a></li>
+                <li class="pure-menu-item"><a href="/companies" class="pure-menu-link">Clientes</a></li>
+				<li class="pure-menu-item"><a href="/visit_types" class="pure-menu-link">Tareas</a></li>
+	         	<li class="pure-menu-item"><a href="/visits/soon" class="pure-menu-link">Proximas Visitas</a></li>
+	            <li class="pure-menu-item"><a href="/visits" class="pure-menu-link">Visitas</a></li>
+                <li class="pure-menu-item"><a href="/frecuencies" class="pure-menu-link">Frecuencias</a></li>
+                <li class="pure-menu-item"><a href="/industry_types" class="pure-menu-link">Industrias</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+    	<%= yield %>
+    </div>
+</div>
+
+<script src="js/ui.js"></script>
+</body>
 </html>

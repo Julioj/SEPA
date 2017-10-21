@@ -16,7 +16,14 @@
 
   <tbody>
     <% @visits.each do |visit| %>
-      <tr>
+      <tr
+        <%  if (visit.visitDate<= Date.today)%>
+            <%= "style=background-color:red;color:white;font-weight:bold;"%>
+        <% end%>
+        <%  if (visit.visitDate<= Date.today+15)%>
+            <%= "style=background-color:orange;color:white;font-weight:bold;"%>
+        <% end%>
+      >
         <td><%= Company.find(visit.companyId).name %></td>
         <td><%= VisitType.find(visit.visitTypeId).name %></td>
         <td><%= Frecuency.find(visit.frecuencyTypeId).name %></td>

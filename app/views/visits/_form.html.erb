@@ -35,8 +35,8 @@
       <h2><%= pluralize(visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
 
       <ul>
-      <% visit.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% visit.errors.each do |attr,msg| %>
+        <li><%=msg %></li>
       <% end %>
       </ul>
     </div>
@@ -59,6 +59,20 @@
   <div class="pure-control-group">
     <%= f.label :visitDate, "Fecha de la visita:" %>
     <%= f.date_select :visitDate %>
+    <%= f.label :aproval_date, "Fecha de aprobacion:" %>
+    <%= f.date_select :aproval_date %>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:observation, "Observacion:") %>
+    <%= f.text_area :observation, :placeholder => 'Observacion'%>
+  </div>
+
+  <div class="pure-control-group">
+    <%= f.label :budget_sent_date, "Fecha de Envio de presupuesto:" %>
+    <%= f.date_select :budget_sent_date %>
+    <%= f.label :aproval_budget_date, "Fecha de Aprovacion de presupuesto:" %>
+    <%= f.date_select :aproval_budget_date %>
   </div>
 
 <h2>Documentos</h2>

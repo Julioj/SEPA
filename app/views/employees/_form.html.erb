@@ -50,11 +50,25 @@
   </div>
 
   <div class="pure-control-group">
-  <%= label_tag(:tlf, "Telefono:") %>
-    <%= f.text_field :tlf, :placeholder => 'Telefono', :class => 'pure-input-1-4'%>
+    <%= label_tag(:mat_number, "Numero de Matricula:") %>
+    <%= f.text_field :mat_number, :placeholder => 'Numero de Matricula', :class => 'pure-input-1-4'%>
+    <%= label_tag(:cuit, "Cuit/Cuil:") %>
+    <%= f.text_field :cuit, :placeholder => 'Cuit/Cuil', :class => 'pure-input-1-4'%>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:address, "Direccion:") %>
+    <%= f.text_field :address, :placeholder => 'Direccion', :class => 'pure-input-1-4'%>
+    <%= label_tag(:degree, "Titulo:") %>
+    <%= f.text_field :degree, :placeholder => 'Titulo', :class => 'pure-input-1-4'%>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:localidadId, "Localidad:") %>
+    <%= f.text_field :localidadId, :placeholder => 'Localidad', :class => 'pure-input-1-4'%>
   </div>
 
   <div class="actions">
-    <%= f.submit 'Guardar Empleado', :class=>'button-success pure-button' %>
+    <%= f.submit 'Guardar Profesional', :class=>'button-success pure-button' %>
   </div>
 <% end %>

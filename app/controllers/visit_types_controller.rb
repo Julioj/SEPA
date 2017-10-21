@@ -69,6 +69,6 @@ class VisitTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_type_params
-      params.require(:visit_type).permit(:name, :description)
+      params.require(:visit_type).permit(:name, :description, :aked_by, :ambit, :authority, :legislation, :observation, :aproval_budget_date, :budget_sent_date, :aproval_date)
     end
 end

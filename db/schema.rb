@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170826230841) do
+ActiveRecord::Schema.define(version: 20170924162840) do
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "companyId"
     t.string   "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "companies", force: :cascade do |t|
+  create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "industryTypeId"
     t.integer  "employeeId"
     t.string   "name"
@@ -30,9 +30,17 @@ ActiveRecord::Schema.define(version: 20170826230841) do
     t.boolean  "suscription"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "fantasy_name"
+    t.integer  "localidadId"
+    t.string   "party"
+    t.string   "postal_code"
+    t.string   "tlf"
+    t.string   "internal_tlf"
+    t.string   "contact"
+    t.string   "type"
   end
 
-  create_table "documents", force: :cascade do |t|
+  create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "visitId"
     t.string   "name"
     t.datetime "created_at",          null: false
@@ -43,36 +51,50 @@ ActiveRecord::Schema.define(version: 20170826230841) do
     t.datetime "images_updated_at"
   end
 
-  create_table "employees", force: :cascade do |t|
+  create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
     t.string   "tlf"
     t.boolean  "isLic"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "mat_number"
+    t.string   "cuit"
+    t.string   "address"
+    t.string   "degree"
+    t.integer  "localidadId"
   end
 
-  create_table "frecuencies", force: :cascade do |t|
+  create_table "frecuencies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "days"
   end
 
-  create_table "industry_types", force: :cascade do |t|
+  create_table "industry_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "visit_types", force: :cascade do |t|
+  create_table "visit_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "aked_by"
+    t.string   "ambit"
+    t.string   "authority"
+    t.string   "legislation"
+    t.string   "observation"
+    t.date     "aproval_budget_date"
+    t.string   "budget_sent_date"
+    t.string   "aproval_date"
+    t.boolean  "print"
   end
 
-  create_table "visits", force: :cascade do |t|
+  create_table "visits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "companyId"
     t.integer  "visitTypeId"
     t.integer  "frecuencyTypeId"
@@ -81,8 +103,14 @@ ActiveRecord::Schema.define(version: 20170826230841) do
     t.date     "visitDate"
     t.boolean  "aproved"
     t.date     "aprovalDate"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.boolean  "sent"
+    t.string   "observation"
+    t.date     "aproval_budget_date"
+    t.string   "budget_sent_date"
+    t.string   "aproval_date"
+    t.boolean  "print"
   end
 
 end

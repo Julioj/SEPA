@@ -32,11 +32,11 @@
 <%= field_set_tag 'Por favor complete los siguientes campos'  %>
   <% if company.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+      <h2><%= pluralize(company.errors.count, "error") %> se encontraron al intentar guardar:</h2>
 
       <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% company.errors.each do |attr,msg| %>
+        <li><%=msg %></li>
       <% end %>
       </ul>
     </div>
@@ -50,19 +50,46 @@
   </div>
 
   <div class="pure-control-group">
-    <%= label_tag(:name, "Nombre:") %>
-    <%= f.text_field :name, :placeholder => 'Nombre' , :class => 'pure-input-1-4'%>
-    <%= label_tag(:email, "Correo:") %>
-    <%= f.text_field :email, :placeholder => 'E-mail', :class => 'pure-input-1-4' %>
+    <%= label_tag(:name, "Razon Social:") %>
+    <%= f.text_field :name, :placeholder => 'Razon Social' , :class => 'pure-input-1-4'%>
+    <%= label_tag(:fantasy_name, "Nombre de Fantasia:") %>
+    <%= f.text_field :fantasy_name, :placeholder => 'Nombre de Fantasia' , :class => 'pure-input-1-4'%>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:cuit, "Cuit:") %>
+    <%= f.text_field :cuit, :placeholder => 'Cuit', :class => 'pure-input-1-4' %>
+    <%= label_tag(:type, "Casa Matriz o Sede?:") %>
+    <%= f.text_field :type, :placeholder => 'Casa Matriz o Sede', :class => 'pure-input-1-4' %>
   </div>
 
   <div class="pure-control-group">
     <%= label_tag(:address, "Direccion:") %>
-    <%= f.text_field :address, :placeholder => 'Direccion', :class => 'pure-input-1-2' %>
+    <%= f.text_area :address, :placeholder => 'Direccion', :class => 'pure-input-2-3' %>
   </div>
+
   <div class="pure-control-group">
-    <%= label_tag(:cuit, "Identificacion (Cuit/Cuil):") %>
-    <%= f.text_field :cuit, :placeholder => 'Identificacion (Cuit/Cuil)'  , :class => 'pure-input-1-4'%>
+    <%= label_tag(:localidadId, "Localidad:") %>
+    <%= f.text_field :localidadId, :placeholder => 'Localidad', :class => 'pure-input-1-4' %>
+    <%= label_tag(:party, "Partido:") %>
+    <%= f.text_field :party, :placeholder => 'Partido', :class => 'pure-input-1-4' %>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:tlf, "Telefono:") %>
+    <%= f.text_field :tlf, :placeholder => 'Telefono', :class => 'pure-u-1-4' %>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:internal_tlf, "Interno:") %>
+    <%= f.text_field :internal_tlf, :placeholder => 'Interno', :class => 'pure-u-1-4' %>
+    <%= label_tag(:contact, "Contacto:") %>
+    <%= f.text_field :contact, :placeholder => 'Contacto', :class => 'pure-u-1-4  ' %>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:email, "Correo:") %>
+    <%= f.text_field :email, :placeholder => 'E-mail', :class => 'pure-input-1-4' %>
   </div>
 
   <div class="pure-control-group">

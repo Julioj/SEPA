@@ -4,22 +4,52 @@
   <h1> <%=@company.name%></h1>
 </p>
 
-<p><strong>Responsable:</strong>
-  <%= @company.employee.name %>
+<p>
+  <strong>Nombre de Fantasi:</strong>
+  <%= @company.fantasy_name %>
 </p>
 
 <p>
+  <strong>Responsable:</strong>
+  <%= @company.employee.name %>
   <strong>Tipo de Industria:</strong>
   <%= @company.industryType.name %>
-  <strong>Email:</strong>
-  <%= @company.email %>
+</p>
+
+<p>
+  <strong>Cuit:</strong>
+  <%= @company.cuit %>
+  <strong>Casa Matriz o Sede:</strong>
+  <%= @company.type %>
 </p>
 
 <p>
   <strong>Direccion:</strong>
   <%= @company.address %>
-  <strong>Cuit:</strong>
-  <%= @company.cuit %>
+</p>
+
+<p>
+  <strong>Localidad:</strong>
+  <%= @company.localidadId %>
+  <strong>Partido:</strong>
+  <%= @company.party %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @company.tlf %>
+</p>
+
+<p>
+  <strong>Interno:</strong>
+  <%= @company.internal_tlf %>
+  <strong>Contacto:</strong>
+  <%= @company.contact %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @company.email %>
 </p>
 
 <p>
