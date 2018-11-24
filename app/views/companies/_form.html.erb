@@ -70,9 +70,9 @@
   </div>
 
   <div class="pure-control-group">
-    <%= label_tag(:localidadId, "Localidad:") %>
+    <%= label_tag(:localidad, "Localidad:") %>
     <%= f.text_field :localidadId, :placeholder => 'Localidad', :class => 'pure-input-1-4' %>
-    <%= label_tag(:party, "Partido:") %>
+    <%= label_tag(:partido, "Partido:") %>
     <%= f.text_field :party, :placeholder => 'Partido', :class => 'pure-input-1-4' %>
   </div>
 
@@ -96,6 +96,46 @@
   <div class="pure-control-group">
     <label><%= link_to "Destino", :controller => 'industry_types', :action => 'index' %></label>
     <%= select("company", "industryTypeId", IndustryType.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Destino' } , :class => 'pure-input-1-4')%>
+    <%= label_tag(:name, "Razon Social:") %>
+    <%= f.text_field :name, :placeholder => 'Razon Social' , :class => 'pure-input-1-4'%>
+    <%= label_tag(:fantasy_name, "Nombre de Fantasia:") %>
+    <%= f.text_field :fantasy_name, :placeholder => 'Nombre de Fantasia' , :class => 'pure-input-1-4'%>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:cuit, "Cuit:") %>
+    <%= f.text_field :cuit, :placeholder => 'Cuit', :class => 'pure-input-1-4' %>
+    <%= label_tag(:type, "Casa Matriz o Sede?:") %>
+    <%= f.text_field :type, :placeholder => 'Casa Matriz o Sede', :class => 'pure-input-1-4' %>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:address, "Direccion:") %>
+    <%= f.text_area :address, :placeholder => 'Direccion', :class => 'pure-input-2-3' %>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:localidadId, "Localidad:") %>
+    <%= f.text_field :localidadId, :placeholder => 'Localidad', :class => 'pure-input-1-4' %>
+    <%= label_tag(:party, "Partido:") %>
+    <%= f.text_field :party, :placeholder => 'Partido', :class => 'pure-input-1-4' %>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:tlf, "Telefono:") %>
+    <%= f.text_field :tlf, :placeholder => 'Telefono', :class => 'pure-u-1-4' %>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:internal_tlf, "Interno:") %>
+    <%= f.text_field :internal_tlf, :placeholder => 'Interno', :class => 'pure-u-1-4' %>
+    <%= label_tag(:contact, "Contacto:") %>
+    <%= f.text_field :contact, :placeholder => 'Contacto', :class => 'pure-u-1-4  ' %>
+  </div>
+
+  <div class="pure-control-group">
+    <%= label_tag(:email, "Correo:") %>
+    <%= f.text_field :email, :placeholder => 'E-mail', :class => 'pure-input-1-4' %>
   </div>
 
   <div class="pure-control-group">

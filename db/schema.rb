@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20181124153317) do
     t.datetime "updated_at", null: false
   end
 
+ActiveRecord::Schema.define(version: 20170924162840) do
+
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "companyId"
     t.string   "comment"
@@ -58,6 +60,7 @@ ActiveRecord::Schema.define(version: 20181124153317) do
     t.integer  "frecuencyTypeId"
     t.string   "localidad"
     t.string   "partido"
+    t.string   "type"
   end
 
   create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -97,16 +100,21 @@ ActiveRecord::Schema.define(version: 20181124153317) do
   end
 
   create_table "industry_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  end
+
+  create_table "frecuencies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 
   create_table "legislacions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 
   create_table "solicitadors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
