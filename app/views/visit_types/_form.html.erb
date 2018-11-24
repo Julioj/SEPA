@@ -44,12 +44,26 @@
 
   <div class="pure-control-group">
     <%= label_tag(:name, "Nombre:") %>
-    <%= f.text_field :name, :placeholder => 'Nombre'%>
+    <%= f.text_field :name, :placeholder => 'Nombre'%> 
     <%= label_tag(:description, "Descripcion:") %>
     <%= f.text_field :description, :placeholder => 'Descripcion'%>
   </div>
 
+  <div class="pure-control-group">
+    <label><%= link_to "Ambito", :controller => 'ambitos', :action => 'new' %></label>
+    <%= select("visit_type", "ambit", Ambito.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Ambito' } , :class => 'pure-input-1-4')%>
+    <label><%= link_to "Autoridad Legal", :controller => 'autoridads', :action => 'new' %></label>
+    <%= select("visit_type", "authority", Autoridad.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Autoridad Legal' } , :class => 'pure-input-1-4')%>
+  </div>
+
+  <div class="pure-control-group">
+    <label><%= link_to "Legislacion", :controller => 'legislacions', :action => 'new' %></label>
+    <%= select("visit_type", "legislation", Legislacion.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Legislacion' } , :class => 'pure-input-1-4')%>
+    <label><%= link_to "Solicitante Legal", :controller => 'solicitadors', :action => 'new' %></label>
+    <%= select("visit_type", "aked_by", Solicitador.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Solicitante Legal' } , :class => 'pure-input-1-4')%>
+  </div>
+
   <div class="actions">
-    <%= f.submit 'Guardar Tipo de Visita', :class=>'button-success pure-button' %>
+    <%= f.submit 'Guardar Tarea', :class=>'button-success pure-button' %>
   </div>
 <% end %>

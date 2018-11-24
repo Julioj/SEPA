@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Empleados</h1>
+<h1>PERSONAL - PROFESIONAL</h1>
 
 <table class="pure-table pure-table-horizontal">
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Email</th>
+      <th>Numero de matricula</th>
+      <th>Cuit</th>
       <th>Numero telefonico</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -16,10 +17,10 @@
     <% @employees.each do |employee| %>
       <tr>
         <td><%= employee.name %></td>
-        <td><%= employee.email %></td>
+        <td><%= employee.mat_number %></td>
+        <td><%= employee.cuit %></td>
         <td><%= employee.tlf %></td>
         <td><%= link_to 'Ver Detalle', employee %></td>
-        <td><%= link_to 'Editar', edit_employee_path(employee) %></td>
         <td><%= link_to 'Eliminar', employee, method: :delete, data: { confirm: 'Esta Ud Seguro?' } %></td>
       </tr>
     <% end %>
@@ -28,4 +29,4 @@
 
 <br>
 
-<%= link_to 'Nuevo Empleado', new_employee_path %>
+<%= link_to 'Nuevo Profesional', new_employee_path %>

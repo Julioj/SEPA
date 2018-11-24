@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :legislacions
+  resources :ambitos
+  resources :autoridads
+  resources :solicitadors
   get '/visits/soon' => 'visits#soon'
   resources :documents
   resources :companies

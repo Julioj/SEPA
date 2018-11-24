@@ -5,14 +5,15 @@
 <table class="pure-table pure-table-horizontal">
   <thead>
     <tr>
-      <th>Nombre del Cliente </th>
-      <th>Tipo de Industria </th>
-      <th>Responsable </th>
-      <th>Email </th>
-      <th>Direccion </th>
-      <th>Cuit </th>
-      <th>Abonado </th>
-      <th colspan="3">Acciones</th>
+      <th>Razon Social</th>
+      <th>Nombre de Fantasia</th>
+      <th>Telefono </th>
+      <th>Domicilio</th>
+      <th>Localidad </th>
+      <th>Partido </th>
+      <th>Email</th>
+      <th>Frecuencia de visita</th>
+      <th colspan="2">Acciones</th>
     </tr>
   </thead>
 
@@ -20,14 +21,14 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= company.name %></td>
-        <td><%= IndustryType.find(company.industryTypeId).name %></td>
-        <td><%= Employee.find(company.employeeId).name %></td>
-        <td><%= company.email %></td>
+        <td><%= company.fantasy_name %></td>
+        <td><%= company.tlf %></td>
         <td><%= company.address %></td>
-        <td><%= company.cuit %></td>
-        <td><%= company.suscription %></td>
+        <td><%= company.localidad %></td>
+        <td><%= company.partido %></td>
+        <td><%= company.email %></td>
+        <td><%= Frecuency.find(company.frecuencyTypeId).name %></td>
         <td><%= link_to 'Ver Detalle', company %></td>
-        <td><%= link_to 'Editar', edit_company_path(company) %></td>
         <td><%= link_to 'Eliminar', company, method: :delete, data: { confirm: 'Esta Ud seguro?' } %></td>
       </tr>
     <% end %>

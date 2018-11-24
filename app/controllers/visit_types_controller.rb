@@ -28,7 +28,7 @@ class VisitTypesController < ApplicationController
 
     respond_to do |format|
       if @visit_type.save
-        format.html { redirect_to @visit_type, notice: 'Visit type was successfully created.' }
+        format.html { redirect_to @visit_type, notice: 'La tarea fue creada con exito.' }
         format.json { render :show, status: :created, location: @visit_type }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class VisitTypesController < ApplicationController
   def update
     respond_to do |format|
       if @visit_type.update(visit_type_params)
-        format.html { redirect_to @visit_type, notice: 'Visit type was successfully updated.' }
+        format.html { redirect_to @visit_type, notice: 'La tarea fue actualizada con exito' }
         format.json { render :show, status: :ok, location: @visit_type }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class VisitTypesController < ApplicationController
   def destroy
     @visit_type.destroy
     respond_to do |format|
-      format.html { redirect_to visit_types_url, notice: 'Visit type was successfully destroyed.' }
+      format.html { redirect_to visit_types_url, notice: 'La tarea ha sido eliminada' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class VisitTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_type_params
-      params.require(:visit_type).permit(:name, :description)
+      params.require(:visit_type).permit(:name, :description, :aked_by, :ambit, :authority, :legislation, :observation, :aproval_budget_date, :budget_sent_date, :aproval_date)
     end
 end

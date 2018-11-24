@@ -7,10 +7,40 @@
 <p>
   <strong>Correo Electronico:</strong>
   <%= @employee.email %>
-  <strong>Telefono:</strong>
-  <%= @employee.tlf %>
 </p>
 
+<p>
+  <strong>Numero de Matricula:</strong>
+  <%= @employee.mat_number %>
+  <strong>Cuit/Cuil:</strong>
+  <%= @employee.cuit %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @employee.address %>
+  <strong>Localidad:</strong>
+  <%= @employee.localidadId %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @employee.cellphone %>
+  <strong>Celular:</strong>
+  <%= @employee.celular %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @employee.degree %>
+  <strong>Especializacion:</strong>
+  <%= @employee.especializacion %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @employee.comentario %>
+</p>
 
 <%= link_to 'Editar', edit_employee_path(@employee) %> |
 <%= link_to 'Regresar', employees_path %>

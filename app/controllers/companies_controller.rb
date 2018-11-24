@@ -28,12 +28,15 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.save
         @company.visit.each do |visit|
+          @visit = Visit.new(visit.attributes)
+          @visit.companyId=@company.id
           daysFromNow = Frecuency.find(visit.frecuencyTypeId).days
           nextVisitDate = visit.visitDate + daysFromNow.day
           while nextVisitDate < (Date.today + 365.day)
             @nextVisit = Visit.new(visit.attributes)
             @nextVisit.visitDate = nextVisitDate
             @nextVisit.id = nil
+            @nextVisit.companyId=@company.id
             @nextVisit.save
             nextVisitDate = nextVisitDate + daysFromNow.day
           end
@@ -79,6 +82,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:id, :industryTypeId, :employeeId, :name, :email, :address, :cuit, :comment, :suscription, :visit_attributes=> [:id, :companyId, :visitTypeId, :frecuencyTypeId, :employeeId, :nextVisit, :visitDate, :aproved, :aprovalDate, :_destroy, :_update, :_save, :_create] )
+      params.require(:company).permit(:id, :industryTypeId, :employeeId, :name, :email, :address, :cuit, :comment, :suscription, :fantasy_name, :localidadId, :party, :postal_code, :companyType, :tlf, :cellphone, :internal_tlf, :contact, :visit_attributes=> [:id, :companyId, :visitTypeId, :frecuencyTypeId, :employeeId, :nextVisit, :visitDate, :aproved, :aprovalDate, :_destroy, :_update, :_save, :_create] )
     end
 end
