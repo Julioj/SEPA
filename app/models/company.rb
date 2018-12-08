@@ -8,7 +8,7 @@ class Company < ApplicationRecord
 
 	validates_presence_of  :employee, :message => "Seleccione un Profesional Asigando" 
 	validates_presence_of  :industryType, :message => "Seleccione una Industria de la lista" 
-	validates :cuit, formt: { with: /\A\d+\z/, message: "Por favor ingrese solo Numeros  para el CIUT" }, length: { is: 11, message: "Por favor ingrese solo 11 digitos para el CIUT" }
+	validates :cuit, format: { with: /\A\d+\z/, message: "Por favor ingrese solo Numeros  para el CIUT" }, length: { is: 11, message: "Por favor ingrese solo 11 digitos para el CIUT" }
 	validates_presence_of  :employee, :message => "Seleccione un Responsable de la lista" 
 	validates_presence_of  :industryType, :message => "Seleccione un Tipo de Industria de la lista" 
 

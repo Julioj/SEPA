@@ -1,8 +1,15 @@
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="/tablefilter.js"></script>
+<script src="/datatables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/datatables.min.css">
 <p id="notice"><%= notice %></p>
 
-<h1>Visitas en los proximos 90 dias</h1>
+<h1>Tareas en los proximos 90 dias</h1>
+<%= link_to 'Nueva Tarea', new_visit_path %>
+<br/>
+<br/>
+<br/>
+
 <input type="search" placeholder="Filtrar ...">
 <table class="pure-table pure-table-horizontal" id="table1">
   <thead>
@@ -43,26 +50,30 @@
   $( document ).ready(function() {
     $('#table1').tableFilter({
 
-  // input field to filter table rows
-  'input' : 'input[type=search]',
+      // input field to filter table rows
+      'input' : 'input[type=search]',
 
-  // trigger events and elements
-  'trigger': {
-    
-    "event"   : "keyup", 
-    'element'   : undefined 
-  },
+      // trigger events and elements
+      'trigger': {
+        
+        "event"   : "keyup", 
+        'element'   : undefined 
+      },
 
-  // case sensitive
-  'caseSensitive' :  false,
-  
-  // enable table sort
-  'sort'  : true, 
+      // case sensitive
+      'caseSensitive' :  false,
+      
+      // enable table sort
+      'sort'  : true, 
 
-  // not found element
-  // e.g. notFoundElement : ".not-found"
-  'notFoundElement' : null,
-});
+      // not found element
+      // e.g. notFoundElement : ".not-found"
+      'notFoundElement' : null,
+    });
   });  
+
+$(document).ready(function() {
+    $('#table1').DataTable( {
+    } );
+} );
 </script>
-<%= link_to 'Nueva Visita', new_visit_path %>

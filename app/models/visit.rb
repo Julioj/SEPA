@@ -4,6 +4,7 @@ class Visit < ApplicationRecord
 	belongs_to :visitType, :foreign_key => 'visitTypeId'
 	belongs_to :frecuency, :foreign_key => 'frecuencyTypeId'
 	has_many :document, :foreign_key => 'visitId'
+  has_many :visit_comment, :foreign_key => 'visit_id'
   validates_presence_of  :company, :message => "Seleccione un Cliente de la lista" 
   validates_presence_of  :employee, :message => "Seleccione un Responsable de la lista"
   validates_presence_of  :visitType, :message => "Seleccione un Tipo de Visita de la lista" 

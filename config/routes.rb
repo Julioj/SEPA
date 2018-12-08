@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :visit_comments
   resources :legislacions
   resources :ambitos
   resources :autoridads

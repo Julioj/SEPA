@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     @comment.companyId = params[:format]
   end
-
+ 
   # GET /comments/1/edit
   def edit
   end
