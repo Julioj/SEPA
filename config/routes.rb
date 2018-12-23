@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ordenes
+  resources :statuses
   resources :visit_comments
   resources :legislacions
   resources :ambitos

@@ -37,7 +37,8 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit.company, notice: 'Visita creada con exito' }
+        #format.html { redirect_to @visit.company, notice: 'Visita creada con exito' }
+        format.html { render :show }
         format.json { render :show, status: :created, location: @visit }
       else
         format.html { render :new }
@@ -51,7 +52,8 @@ class VisitsController < ApplicationController
   def update
     respond_to do |format|
       if @visit.update(visit_params)
-        format.html { redirect_to @visit.company, notice: 'Visita actualizada con exito' }
+        #format.html { redirect_to @visit.company, notice: 'Visita actualizada con exito' }
+        format.html { render :show }
         format.json { render :show, status: :ok, location: @visit }
       else
         format.html { render :edit }
@@ -78,6 +80,6 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.require(:visit).permit(:companyId, :visitTypeId, :frecuencyTypeId, :employeeId, :nextVisit, :visitDate, :aproved, :aprovalDate, :document_attributes=> [:id, :visitId, :name, :images, :_destroy, :_update, :_save, :_create])
+      params.require(:visit).permit(:companyId, :visitTypeId, :frecuencyTypeId, :employeeId, :nextVisit, :budget_sent_date, :aproval_budget_date, :visitDate, :external_id, :aproved, :aprovalDate, :document_attributes=> [:id, :visitId, :name, :images, :_destroy, :_update, :_save, :_create])
     end
 end

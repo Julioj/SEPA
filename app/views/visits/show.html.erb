@@ -32,7 +32,17 @@
       <td><strong>Ultima Actualizacion:</strong></td>
       <td><%= @visit.updated_at %></td>
       <td><strong>Aprobado:</strong></td>
-      <td><%=  @visit.aproved ? 'Si':'No'%></td>
+      <td><%= @visit.aproved ? 'Si':'No'%></td>
+    </tr>
+    <tr>
+      <td><strong>Fecha de Envio de presupuesto:</strong></td>
+      <td><%= @visit.budget_sent_date %></td>
+      <td><strong>Fecha de Aprovacion de presupuesto:</strong></td>
+      <td><%= @visit.aproval_budget_date %></td>
+    </tr>
+    <tr>
+      <td><strong>Observacion:</strong></td>
+      <td><%= @visit.observation %></td>
     </tr>
 </table>
 <br/>

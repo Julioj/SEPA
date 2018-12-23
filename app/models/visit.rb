@@ -1,8 +1,10 @@
 class Visit < ApplicationRecord
 	belongs_to :company, :foreign_key => 'companyId'
+  belongs_to :ordene, :foreign_key => 'order_id'
 	belongs_to :employee, :foreign_key => 'employeeId'
 	belongs_to :visitType, :foreign_key => 'visitTypeId'
 	belongs_to :frecuency, :foreign_key => 'frecuencyTypeId'
+  belongs_to :ordene, :foreign_key => 'order_id'
 	has_many :document, :foreign_key => 'visitId'
   has_many :visit_comment, :foreign_key => 'visit_id'
   validates_presence_of  :company, :message => "Seleccione un Cliente de la lista" 

@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1> O. de Trabajo Nro <%= @ordene.id %> </h1>
+  <%= link_to 'Editar/Agregar Tarea', edit_visit_path(@ordene) %> |
+  <%= link_to 'Regresar al Listado', ordenes_path %>
+</p>
+
+<style> .example-table td {   padding: 3px} </style>
+
+<table width="100%" class="example-table" border="0">
+<tbody>
+    <tr>
+        <td><strong>Cliente:</strong></td>
+        <td><%= @ordene.company.name %></td>
+        <td><strong>Direccion:</strong></td>
+        <td><%= @ordene.direccion %></td>
+    </tr>
+    <tr>
+      <td><strong>Localidad:</strong></td>
+      <td><%= @ordene.localidad %></td>
+      <td><strong>Rubro:</strong></td>
+      <td><%= @ordene.company.industryType.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Contacto:</strong></td>
+      <td><%= @ordene.employee.name %></td>
+      <td><strong>Cuit:</strong></td>
+      <td><%=  @ordene.cuit %></td>
+    </tr>
+    <tr>
+      <td><strong>Nro Cel:</strong></td>
+      <td><%= @ordene.celular %></td>
+      <td><strong>Nro Telefono:</strong></td>
+      <td><%= @ordene.telefono %></td>
+    </tr>
+    <tr>
+      <td><strong>Correo:</strong></td>
+      <td><%= @ordene.email %></td>
+    </tr>
+</table>
+<br/>
+
+<h3>Visitas</h3>
+
+<table class="pure-table pure-table-horizontal" width="100%">
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th>Responsable</th>
+      <th>Ultima nota</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ordene.visit.each do |visita| %>
+      <tr>
+        <td><%= visita.external_id %></td>
+        <td><%= visita.visitType.name %></td>
+        <td><%= visita.state %></td>
+        <td><%= visita.employee.name %></td>
+        <td><%= visita.visit_comment.last == nil ? '' :  visita.visit_comment.last.note %></td>
+        <td><%= link_to 'Editar', edit_visit_path(visita) %></td>
+        <td><%= link_to 'Eliminar', visita, method: :delete, data: { confirm: 'Esta Ud Seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

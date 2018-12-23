@@ -3,6 +3,7 @@ class Company < ApplicationRecord
 	belongs_to :industryType, :foreign_key => 'industryTypeId'
 	belongs_to :frecuency, :foreign_key => 'frecuencyTypeId'
 	has_many :visit, :foreign_key => 'companyId'
+	has_many :ordene, :foreign_key => 'companyId'
 	has_many :comment, :foreign_key => 'companyId'
 	accepts_nested_attributes_for :visit, allow_destroy: true
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181208134603) do
+ActiveRecord::Schema.define(version: 20181216173413) do
 
   create_table "ambitos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -108,10 +108,37 @@ ActiveRecord::Schema.define(version: 20181208134603) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ordenes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "direccion"
+    t.string   "localidad"
+    t.integer  "localidad_id"
+    t.integer  "industria_id"
+    t.string   "contacto"
+    t.integer  "contacto_id"
+    t.string   "cuit"
+    t.string   "celular"
+    t.string   "email"
+    t.string   "telefono"
+    t.integer  "estatus_id"
+    t.string   "prioridad"
+    t.integer  "prioridad_id"
+    t.date     "vencimiento"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "companyId"
+  end
+
   create_table "solicitadors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "visit_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -156,6 +183,7 @@ ActiveRecord::Schema.define(version: 20181208134603) do
     t.boolean  "print"
     t.string   "state"
     t.string   "external_id"
+    t.integer  "order_id"
   end
 
 end
