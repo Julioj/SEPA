@@ -50,6 +50,11 @@
     <%= f.text_field :contacto, :placeholder => 'Contacto', :class => 'pure-u-1-4  ' %>
   </div>
 
+  <div class="pure-control-group pure-u-1 pure-u-md-1-3">
+    <%= label_tag(:external_id, "Codigo:") %>
+    <%= f.text_field :external_id %>
+  </div>
+
   <%= field_set_tag 'Por favor complete los campos de contacto'  %>
   <div class="pure-control-group">
     <label><%= link_to "Cliente", :controller => 'companies', :action => 'new' %></label>
@@ -89,7 +94,7 @@
       <%= select("visit", "frecuencyTypeId", Frecuency.all.collect {|e| [ e.name, e.id ] }, { :prompt => 'Frecuencia de la Visita' }, :class => 'pure-input-1-4')%>
   </div>
 
-<h2>Tareas/Permanencia</h2>
+<!--h2>Tareas/Permanencia</h2>
 
   <div class="pure-form pure-form-aligned">
     <%= f.nested_fields_for :visit, legend: "Complete los datos de la Tarea/Permanencia" do |ff| %>
@@ -113,7 +118,7 @@
   </div>
   <div class="action">
     <%= f.add_nested_fields_link :visit,'Agregar', class: 'button-secondary pure-button'%>
-  </div>
+  </div-->
   <hr/>
   <br/>
   <div class="action">

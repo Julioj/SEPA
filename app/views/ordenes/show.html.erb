@@ -2,7 +2,8 @@
 
 <p>
   <h1> O. de Trabajo Nro <%= @ordene.id %> </h1>
-  <%= link_to 'Editar/Agregar Tarea', edit_visit_path(@ordene) %> |
+  <%= link_to 'Editar', edit_ordene_path(@ordene) %> |
+  <%= link_to 'Agregar Tarea', visits_path %> |
   <%= link_to 'Regresar al Listado', ordenes_path %>
 </p>
 
