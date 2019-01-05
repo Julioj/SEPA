@@ -46,7 +46,7 @@
     <%= label_tag(:external_id, "Codigo:") %>
     <%= f.text_field :external_id %>
     <%= label_tag(:order_id, "Asociar a la O. de Trabajo con codigo:") %>
-    <%= select("visit", "order_id", Ordene.all.collect {|e| [ e.external_id , e.id ] }, { :prompt => 'Seleccione un Cliente' }, :class => 'pure-input-1-4')%>
+    <%= select("visit", "order_id", Ordene.all.collect {|e| [ e.external_id , e.id ] }, { :prompt => 'Seleccione una O de Trabajo' }, :class => 'pure-input-1-4')%>
   </div>
 
   <div class="pure-control-group">

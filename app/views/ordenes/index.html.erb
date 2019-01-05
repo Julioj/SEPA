@@ -5,6 +5,7 @@
 <table class="pure-table pure-table-horizontal">
   <thead>
     <tr>
+      <th>Codigo</th>
       <th>Vencimiento</th>
       <th>Profesional Asignado</th>
       <th>Contacto</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @ordenes.each do |orden| %>
       <tr>
+        <td><%= orden.external_id %></td>
         <td><%= orden.vencimiento %></td>
         <td><%= Employee.find(orden.contacto_id).name %></td>
         <td><%= orden.contacto %></td>
