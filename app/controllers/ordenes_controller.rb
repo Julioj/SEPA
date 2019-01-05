@@ -69,6 +69,6 @@ class OrdenesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ordene_params
-      params.require(:ordene).permit(:direccion, :localidad, :localidad_id, :industria_id, :contacto, :contacto_id, :cuit, :celular, :email, :telefono, :estatus_id, :prioridad, :prioridad_id, :vencimiento, :visit_attributes=> [:id, :companyId, :visitTypeId, :frecuencyTypeId, :employeeId, :nextVisit, :visitDate, :aproved, :aprovalDate, :_destroy, :_update, :_save, :_create])
+      params.require(:ordene).permit(:direccion, :localidad, :localidad_id, :industria_id, :contacto, :contacto_id, :cuit, :celular, :email, :telefono, :estatus_id, :prioridad, :prioridad_id, :vencimiento, :companyId, :visit_attributes=> [:id, :companyId, :visitTypeId, :frecuencyTypeId, :employeeId, :nextVisit, :visitDate, :aproved, :aprovalDate, :_destroy, :_update, :_save, :_create])
     end
 end

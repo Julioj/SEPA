@@ -45,12 +45,16 @@
 
   <div class="pure-control-group">
     <label><%= link_to "Profesional Asignado", :controller => 'employees', :action => 'new' %></label>
-    <%= select("  ", "contacto_id", Employee.all.collect {|g| [ g.name, g.id ] }, {  :prompt => 'Prof. Asignado' } , :class => 'pure-input-1-4')%>
+    <%= select("ordene", "contacto_id", Employee.all.collect {|g| [ g.name, g.id ] }, {  :prompt => 'Prof. Asignado' } , :class => 'pure-input-1-4')%>
     <%= label_tag(:contacto, "Contacto:") %>
     <%= f.text_field :contacto, :placeholder => 'Contacto', :class => 'pure-u-1-4  ' %>
   </div>
 
   <%= field_set_tag 'Por favor complete los campos de contacto'  %>
+  <div class="pure-control-group">
+    <label><%= link_to "Cliente", :controller => 'companies', :action => 'new' %></label>
+    <%= select("ordene", "companyId", Company.all.collect {|g| [ g.name, g.id ] }, {  :prompt => 'Cliente' } , :class => 'pure-input-1-4')%>
+  </div>
   <div class="pure-control-group">
     <%= label_tag(:direccion, "Direccion, Calle y Numero:") %>
     <%= f.text_field :direccion, :placeholder => 'Direccion', :class => 'pure-input-2-3' %>
